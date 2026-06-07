@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026</title>
+  <title>World Cup 2026 Fan Page</title>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: #f0f2f5;
       color: #333;
+      scroll-behavior: smooth;
     }
     header {
       display: flex;
@@ -17,6 +18,9 @@
       gap: 2rem;
       padding: 1.5rem;
       background: linear-gradient(90deg, #111, #333);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     .nav-box {
       background: #fff;
@@ -26,13 +30,6 @@
       font-weight: bold;
       cursor: pointer;
       transition: transform 0.3s, background 0.3s;
-      opacity: 0;
-      transform: translateY(-30px);
-    }
-    .nav-box.show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.6s ease;
     }
     .nav-box:hover {
       transform: scale(1.1);
@@ -40,15 +37,15 @@
       color: #fff;
     }
     .hero {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       text-align: center;
-      padding: 5rem 2rem;
       background: linear-gradient(to right, #4facfe, #00f2fe);
       color: #fff;
-      overflow: hidden;
+      padding: 4rem 2rem;
     }
     .hero h1 {
       font-size: 3rem;
@@ -63,39 +60,75 @@
       from { transform: translateX(-100%); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4facfe;
+      animation: fadeIn 2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     .players {
       display: flex;
       justify-content: center;
       gap: 2rem;
       margin-top: 3rem;
+      flex-wrap: wrap;
     }
     .players img {
       width: 250px;
-      height: auto;
       border-radius: 15px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-      transition: transform 0.5s, opacity 0.5s;
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    .players img.show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.8s ease;
+      transition: transform 0.5s;
     }
     .players img:hover {
       transform: rotate(-3deg) scale(1.05);
     }
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
+    .ladder {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 2rem;
     }
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.8s ease;
+    .ladder div {
+      background: #fff;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      flex: 1 1 200px;
+      transition: transform 0.3s;
+    }
+    .ladder div:hover {
+      transform: scale(1.05);
+      background: #e6f7ff;
+    }
+    .contact-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .contact-box {
+      background: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .contact-box:hover {
+      transform: scale(1.1);
+      background: #4facfe;
+      color: #fff;
     }
     footer {
       background: #111;
@@ -108,48 +141,59 @@
 </head>
 <body>
   <header>
-    <div class="nav-box">Home</div>
-    <div class="nav-box">Prediction 🏆</div>
-    <div class="nav-box">Groups</div>
-    <div class="nav-box">Contact</div>
+    <a href="#home" class="nav-box">Home</a>
+    <a href="#prediction" class="nav-box">Prediction 🏆</a>
+    <a href="#groups" class="nav-box">Groups</a>
+    <a href="#contact" class="nav-box">Contact</a>
   </header>
 
-  <section class="hero">
-    <h1><span>🏆</span> World Cup 2026 Prediction</h1>
-    <p>Experience the thrill of football with stunning animations and legendary players.</p>
+  <section id="home" class="hero">
+    <h1><span>📰</span> Latest World Cup 2026 News</h1>
+    <p>⚽ Kickoff June 11 — 48 teams, 104 matches across USA, Canada, Mexico.<br>
+       🏟️ Host cities finalizing preparations.<br>
+       🇸🇳 Senegal tipped as African contender.<br>
+       🌍 Debut nations ready to make history.<br>
+       🔥 Warm‑up matches completed.<br>
+       ⭐ Stars to watch: Mbappé, Bellingham, Vinícius Jr., Haaland, Yamal, Musiala.</p>
+  </section>
+
+  <section id="prediction">
+    <h2>Prediction 🏆</h2>
+    <p><strong>Winner:</strong> Portugal<br>
+       <strong>Runner‑up:</strong> Spain<br>
+       <strong>Third Place:</strong> France<br>
+       <strong>Dark Horse:</strong> Argentina<br>
+       <strong>Golden Boot:</strong> Cristiano Ronaldo<br>
+       <strong>Star Young Player:</strong> Lamine Yamal</p>
+    <p>✨ My take: Portugal’s depth and Ronaldo’s finishing could carry them, Spain’s midfield brilliance makes them dangerous, France’s Mbappé is unstoppable, and Argentina’s Messi magic still lurks as a dark horse. Expect fireworks!</p>
     <div class="players">
       <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Cristiano Ronaldo">
       <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Lionel_Messi_20180626.jpg" alt="Lionel Messi">
     </div>
   </section>
 
-  <section>
-    <h2>Groups</h2>
-    <p>Explore all 12 groups and their squads with interactive animations.</p>
+  <section id="groups">
+    <h2>Groups ⚽ Ladder Format</h2>
+    <div class="ladder">
+      <div><strong>Round Stage</strong><br>Group B, C, D, E...</div>
+      <div><strong>Quarter Finals</strong><br>Top 8 teams advance</div>
+      <div><strong>Semi Finals</strong><br>Top 4 clash</div>
+      <div><strong>Final</strong><br>🏆 Champion crowned</div>
+    </div>
+    <p>Detailed squads included for each group (Bosnia, Canada, Qatar, Switzerland, Brazil, Haiti, Morocco, Scotland, Australia, Paraguay, Türkiye, USA, etc.).</p>
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Get in touch with us for predictions, updates, and more.</p>
+  <section id="contact">
+    <h2>Contact 📱</h2>
+    <div class="contact-boxes">
+      <a href="https://www.tiktok.com/@yourhandle" class="contact-box">TikTok</a>
+      <a href="https://www.youtube.com/@yourchannel" class="contact-box">YouTube</a>
+      <a href="https://www.instagram.com/yourhandle" class="contact-box">Instagram</a>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2026 World Cup Fan Page. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Reveal elements on scroll
-    const revealElements = document.querySelectorAll('.nav-box, .players img, section');
-    window.addEventListener('scroll', () => {
-      revealElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          el.classList.add('show');
-        }
-      });
-    });
-    // Initial load for nav boxes
-    document.querySelectorAll('.nav-box').forEach(el => el.classList.add('show'));
-  </script>
 </body>
-        </html>
+                                               </html>
