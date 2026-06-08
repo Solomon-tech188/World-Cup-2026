@@ -1,239 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050b2b;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+background:rgba(0,0,0,0.15);
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#4ea5ff;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(5,11,43,.2),rgba(5,11,43,.8)),
+url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1600');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:0 8%;
+position:relative;
+}
+
+.hero-content{
+max-width:700px;
+z-index:2;
+}
+
+.hero h1{
+font-size:70px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+color:#ddd;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#2f7cff;
+border-radius:50px;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.stars span{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 4s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:.2;}
+50%{opacity:1;}
+}
+
+.section{
+padding:100px 8%;
+}
+
+.title{
+font-size:40px;
+margin-bottom:50px;
+text-align:center;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.countdown{
+text-align:center;
+margin-top:50px;
+font-size:30px;
+font-weight:bold;
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#03071e;
+}
+
+</style>
 </head>
 <body>
-  <!-- Navigation -->
-  <header class="navbar">
-    <nav>
-      <ul>
-        <li><a href="#">Teams</a></li>
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Highlights</a></li>
-        <li><a href="#">Help</a></li>
-        <li><a href="#" class="login-btn">Login</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Celebrate the spirit of football.<br>World Cup 2026 is here!</h1>
-      <button class="cta-btn">Get Tickets</button>
-    </div>
-    <!-- Animated football -->
-    <div class="football"></div>
-    <!-- Stadium lights -->
-    <div class="stadium-lights"></div>
-    <!-- Scoreboard ticker -->
-    <div class="ticker">
-      <div class="ticker-text">
-        ⚽ USA 2 - 1 Mexico | 🏆 Brazil 3 - 2 Germany | 🇪🇸 Spain 1 - 1 Argentina | 🏟️ Canada 0 - 0 Italy
-      </div>
-    </div>
-  </section>
+<header>
+<div class="logo">WC26</div>
 
-  <!-- Highlights Section -->
-  <section class="advantage">
-    <h2>World Cup Highlights</h2>
-    <div class="advantage-grid">
-      <div class="advantage-item">
-        <h3>Global Teams</h3>
-        <p>48 nations competing for glory, bringing passion and skill to the pitch.</p>
-      </div>
-      <div class="advantage-item">
-        <h3>Cutting-edge Stadiums</h3>
-        <p>Experience matches in world-class venues across the USA, Canada, and Mexico.</p>
-      </div>
-      <div class="advantage-item">
-        <h3>Unforgettable Moments</h3>
-        <p>From stunning goals to dramatic saves, history will be made in 2026.</p>
-      </div>
-    </div>
-  </section>
+<nav>
+<a href="#">Home</a>
+<a href="#">Matches</a>
+<a href="#">Teams</a>
+<a href="#">Predictions</a>
+<a href="#">Stadiums</a>
+</nav>
+</header>
 
-  <!-- Analysis Section -->
-  <section class="analysis">
-    <h2>ANALYSIS OF THE TOURNAMENT</h2>
-    <p>Helping you connect the dots. See how teams progress and what the future holds.</p>
-    <p>Follow match stats, player performances, and expert insights as the competition unfolds.</p>
-  </section>
+<div class="stars">
+<span style="top:10%;left:20%"></span>
+<span style="top:20%;left:60%"></span>
+<span style="top:35%;left:80%"></span>
+<span style="top:50%;left:15%"></span>
+<span style="top:70%;left:70%"></span>
+<span style="top:30%;left:40%"></span>
+<span style="top:80%;left:50%"></span>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 FIFA World Cup. All rights reserved.</p>
-  </footer>
+<section class="hero">
+
+<div class="hero-content">
+<h1>World Cup 2026</h1>
+
+<p>
+Experience the biggest football tournament in history.
+Live scores, predictions, standings, schedules,
+stadiums, and team statistics all in one place.
+</p>
+
+<a href="#" class="btn">Explore WC26</a>
+
+<div class="countdown" id="countdown"></div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">World Cup Features</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>⚽ Live Matches</h3>
+<p>Follow every match and score in real time.</p>
+</div>
+
+<div class="card">
+<h3>🏆 Predictions</h3>
+<p>See AI-powered predictions for every game.</p>
+</div>
+
+<div class="card">
+<h3>📊 Team Stats</h3>
+<p>Compare squads, goals, assists and rankings.</p>
+</div>
+
+<div class="card">
+<h3>🏟 Stadiums</h3>
+<p>Explore the venues across USA, Canada and Mexico.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">Road To The Final</h2>
+
+<p style="text-align:center;max-width:800px;margin:auto;font-size:18px;">
+Track every nation from the group stage to the final.
+Discover match schedules, standings, top scorers,
+team performances and the latest World Cup news.
+</p>
+
+</section>
+
+<footer>
+© 2026 World Cup Fan Hub
+</footer>
+
+<script>
+
+const countdown = document.getElementById("countdown");
+
+const worldCupDate = new Date("June 11, 2026 00:00:00").getTime();
+
+setInterval(() => {
+
+let now = new Date().getTime();
+
+let distance = worldCupDate - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+
+countdown.innerHTML =
+"⏳ " + days + " Days Until Kickoff";
+
+},1000);
+
+</script>
+
 </body>
-</html>
-
-<head>
-  <link rel="stylesheet" href="styles.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026</title>
-  <style>
-  /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  color: #fff;
-  background: linear-gradient(to bottom, #0b0c2a, #3a1c5d);
-}
-
-/* Navbar */
-.navbar {
-  padding: 20px;
-  text-align: right;
-}
-.navbar ul {
-  list-style: none;
-}
-.navbar li {
-  display: inline-block;
-  margin-left: 20px;
-}
-.navbar a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-.login-btn {
-  border: 1px solid #fff;
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-
-/* Hero */
-.hero {
-  position: relative;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url('stadium-night.jpg') no-repeat center center/cover;
-  overflow: hidden;
-}
-.hero-content {
-  text-align: center;
-  z-index: 2;
-}
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-.cta-btn {
-  background: #fff;
-  color: #000;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Animated football */
-.football {
-  position: absolute;
-  top: 20%;
-  left: -100px;
-  width: 50px;
-  height: 50px;
-  background: url('football.png') no-repeat center/contain;
-  animation: shootBall 6s linear infinite;
-}
-@keyframes shootBall {
-  0% { left: -100px; top: 20%; opacity: 0; }
-  20% { opacity: 1; }
-  50% { left: 50%; top: 40%; }
-  100% { left: 110%; top: 60%; opacity: 0; }
-}
-
-/* Stadium lights glow */
-.stadium-lights {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top, rgba(255,255,255,0.2), transparent 70%);
-  animation: glow 3s ease-in-out infinite alternate;
-}
-@keyframes glow {
-  from { opacity: 0.3; }
-  to { opacity: 0.8; }
-}
-
-/* Scoreboard ticker */
-.ticker {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  overflow: hidden;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-.ticker-text {
-  white-space: nowrap;
-  display: inline-block;
-  padding-left: 100%;
-  animation: scrollTicker 15s linear infinite;
-  font-size: 1rem;
-}
-@keyframes scrollTicker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-.advantage {
-  padding: 60px 20px;
-  text-align: center;
-}
-.advantage h2 {
-  margin-bottom: 40px;
-  font-size: 2rem;
-}
-.advantage-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-}
-.advantage-item {
-  max-width: 250px;
-}
-
-.analysis {
-  padding: 60px 20px;
-  text-align: center;
-}
-.analysis h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-.analysis p {
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-footer {
-  background: #111;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  }
-    body {
-      font-family: 'Arial', sans-serif;
-      color: #fff;
-      background: linear-gradient(to bottom, #0b0c2a, #3a1c5d);
-    }
-  </style>
-</head>
+  </html>
