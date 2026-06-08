@@ -1,271 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Cup 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Coffee Shop</title>
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
 }
 
 body{
-background:#050b2b;
-color:white;
-overflow-x:hidden;
+  background: linear-gradient(135deg,#07121f,#0b2a3f);
+  color:#fff;
+  overflow-x:hidden;
 }
 
+/* NAV */
 header{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-background:rgba(0,0,0,0.15);
-backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
 }
 
 .logo{
-font-size:28px;
-font-weight:700;
+  font-size:22px;
+  font-weight:bold;
 }
 
 nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:.3s;
+  color:#fff;
+  margin:0 12px;
+  text-decoration:none;
+  opacity:0.7;
+  transition:0.3s;
 }
-
 nav a:hover{
-color:#4ea5ff;
+  opacity:1;
 }
 
+/* HERO */
 .hero{
-height:100vh;
-background:
-linear-gradient(rgba(5,11,43,.2),rgba(5,11,43,.8)),
-url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1600');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-padding:0 8%;
-position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:60px;
+  flex-wrap:wrap;
 }
 
-.hero-content{
-max-width:700px;
-z-index:2;
+.hero-text{
+  max-width:500px;
+  animation:fadeIn 1s ease;
 }
 
-.hero h1{
-font-size:70px;
-line-height:1.1;
-margin-bottom:20px;
+.hero-text h1{
+  font-size:52px;
+  margin-bottom:15px;
 }
 
-.hero p{
-font-size:20px;
-color:#ddd;
-margin-bottom:30px;
+.hero-text p{
+  opacity:0.7;
+  line-height:1.6;
 }
 
+/* BUTTON */
 .btn{
-display:inline-block;
-padding:15px 35px;
-background:#2f7cff;
-border-radius:50px;
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
+  margin-top:20px;
+  padding:12px 26px;
+  background:linear-gradient(90deg,#2aa8ff,#6dd5ff);
+  border:none;
+  border-radius:30px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
 }
 
 .btn:hover{
-transform:translateY(-5px);
+  transform:scale(1.05);
 }
 
-.stars span{
-position:absolute;
-width:3px;
-height:3px;
-background:white;
-border-radius:50%;
-animation:twinkle 4s infinite;
+/* RIGHT CARD */
+.coffee-card{
+  width:320px;
+  padding:20px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  text-align:center;
+  animation:float 3s ease-in-out infinite;
 }
 
-@keyframes twinkle{
-0%,100%{opacity:.2;}
-50%{opacity:1;}
+.coffee-card img{
+  width:100%;
+  border-radius:15px;
 }
 
-.section{
-padding:100px 8%;
+/* SLIDER SECTION */
+.slider{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding:30px 50px;
+  scroll-snap-type:x mandatory;
 }
 
-.title{
-font-size:40px;
-margin-bottom:50px;
-text-align:center;
+.slide{
+  min-width:220px;
+  background:rgba(255,255,255,0.06);
+  padding:20px;
+  border-radius:15px;
+  scroll-snap-align:start;
+  transition:0.3s;
 }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+.slide:hover{
+  transform:translateY(-8px);
 }
 
-.card{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:20px;
-backdrop-filter:blur(10px);
-transition:.3s;
+/* EXPLORE PAGE ANIMATION */
+.explore-page{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#0b2a3f;
+  transform:translateY(100%);
+  transition:0.7s ease;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
 
-.card:hover{
-transform:translateY(-10px);
+.explore-page.active{
+  transform:translateY(0);
 }
 
-.card h3{
-margin-bottom:15px;
+/* ANIMATIONS */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-.countdown{
-text-align:center;
-margin-top:50px;
-font-size:30px;
-font-weight:bold;
-}
-
-footer{
-padding:40px;
-text-align:center;
-background:#03071e;
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0px);}
 }
 
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo">WC26</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Matches</a>
-<a href="#">Teams</a>
-<a href="#">Predictions</a>
-<a href="#">Stadiums</a>
-</nav>
+  <div class="logo">☕ Coffee World</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Menu</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
 </header>
 
-<div class="stars">
-<span style="top:10%;left:20%"></span>
-<span style="top:20%;left:60%"></span>
-<span style="top:35%;left:80%"></span>
-<span style="top:50%;left:15%"></span>
-<span style="top:70%;left:70%"></span>
-<span style="top:30%;left:40%"></span>
-<span style="top:80%;left:50%"></span>
-</div>
-
 <section class="hero">
+  <div class="hero-text">
+    <h1>Fresh Coffee<br>Every Morning</h1>
+    <p>Experience premium coffee with smooth taste, rich aroma, and modern cafe vibes.</p>
+    <button class="btn" onclick="openExplore()">Explore Menu</button>
+  </div>
 
-<div class="hero-content">
-<h1>World Cup 2026</h1>
-
-<p>
-Experience the biggest football tournament in history.
-Live scores, predictions, standings, schedules,
-stadiums, and team statistics all in one place.
-</p>
-
-<a href="#" class="btn">Explore WC26</a>
-
-<div class="countdown" id="countdown"></div>
-
-</div>
-
+  <div class="coffee-card">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" />
+    <h3>Caramel Latte</h3>
+    <p>Sweet & creamy perfection</p>
+  </div>
 </section>
 
-<section class="section">
-
-<h2 class="title">World Cup Features</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>⚽ Live Matches</h3>
-<p>Follow every match and score in real time.</p>
-</div>
-
-<div class="card">
-<h3>🏆 Predictions</h3>
-<p>See AI-powered predictions for every game.</p>
-</div>
-
-<div class="card">
-<h3>📊 Team Stats</h3>
-<p>Compare squads, goals, assists and rankings.</p>
-</div>
-
-<div class="card">
-<h3>🏟 Stadiums</h3>
-<p>Explore the venues across USA, Canada and Mexico.</p>
-</div>
-
-</div>
-
+<!-- SLIDER -->
+<section class="slider">
+  <div class="slide">☕ Espresso<br><small>Strong & bold</small></div>
+  <div class="slide">🥛 Cappuccino<br><small>Foamy & soft</small></div>
+  <div class="slide">🍫 Mocha<br><small>Chocolate mix</small></div>
+  <div class="slide">🧊 Iced Coffee<br><small>Cold & refreshing</small></div>
 </section>
 
-<section class="section">
-
-<h2 class="title">Road To The Final</h2>
-
-<p style="text-align:center;max-width:800px;margin:auto;font-size:18px;">
-Track every nation from the group stage to the final.
-Discover match schedules, standings, top scorers,
-team performances and the latest World Cup news.
-</p>
-
-</section>
-
-<footer>
-© 2026 World Cup Fan Hub
-</footer>
+<!-- EXPLORE PAGE -->
+<div class="explore-page" id="explorePage">
+  <h1>Welcome to Coffee Menu</h1>
+  <p>More content coming soon...</p>
+  <button class="btn" onclick="closeExplore()">Go Back</button>
+</div>
 
 <script>
+function openExplore(){
+  document.getElementById("explorePage").classList.add("active");
+}
 
-const countdown = document.getElementById("countdown");
-
-const worldCupDate = new Date("June 11, 2026 00:00:00").getTime();
-
-setInterval(() => {
-
-let now = new Date().getTime();
-
-let distance = worldCupDate - now;
-
-let days = Math.floor(distance/(1000*60*60*24));
-
-countdown.innerHTML =
-"⏳ " + days + " Days Until Kickoff";
-
-},1000);
-
+function closeExplore(){
+  document.getElementById("explorePage").classList.remove("active");
+}
 </script>
 
 </body>
-  </html>
+      </html>
