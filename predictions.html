@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Cup 2026 - Prediction</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; color:#000; font-weight:bold; background:#f0f2f5; }
+    header { display:flex; justify-content:center; gap:2rem; padding:1.5rem; background:linear-gradient(90deg,#111,#333); }
+    .nav-box { background:#fff; padding:1rem 2rem; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2); cursor:pointer; transition:transform 0.3s, background 0.3s; }
+    .nav-box:hover { transform:scale(1.1); background:#4facfe; color:#fff; }
+    section { padding:4rem 2rem; text-align:center; }
+
+    /* Animated headline */
+    h2 {
+      font-size: 2.5rem;
+      color: #4facfe;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #4facfe; }
+      to { text-shadow: 0 0 25px #00f2fe; }
+    }
+
+    /* Sliding text animation */
+    .prediction-text {
+      font-size: 1.2rem;
+      animation: slideUp 2s ease-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Player images with hover animation */
+    .players { display:flex; justify-content:center; gap:2rem; margin-top:3rem; flex-wrap:wrap; }
+    .players img {
+      width:250px; border-radius:15px; box-shadow:0 6px 12px rgba(0,0,0,0.3);
+      transition: transform 0.6s, box-shadow 0.6s;
+    }
+    .players img:hover {
+      transform: scale(1.1) rotate(-3deg);
+      box-shadow: 0 0 25px #4facfe;
+    }
+
+    /* Animated highlight box */
+    .highlight {
+      background:#fff; padding:1rem; margin:1rem auto; max-width:600px;
+      border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      animation: fadeIn 3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="nav-box">Home</a>
+    <a href="prediction.html" class="nav-box">Prediction 🏆</a>
+    <a href="groups.html" class="nav-box">Groups</a>
+  </header>
+
+  <section>
+    <h2>Prediction 🏆</h2>
+    <div class="highlight prediction-text">
+      <p>Winner: Portugal<br>
+         Runner‑up: Spain<br>
+         Third Place: France<br>
+         Dark Horse: Argentina<br>
+         Golden Boot: Cristiano Ronaldo<br>
+         Star Young Player: Lamine Yamal</p>
+    </div>
+    <p class="prediction-text">Portugal’s depth and Ronaldo’s finishing could carry them. Spain’s midfield brilliance makes them dangerous. France’s Mbappé is unstoppable. Argentina’s Messi magic still lurks as a dark horse. Expect fireworks!</p>
+    <div class="players">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Cristiano Ronaldo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Lionel_Messi_20180626.jpg" alt="Lionel Messi">
+    </div>
+  </section>
+</body>
+  </html>
