@@ -6,6 +6,145 @@
 <title>Coffee Shop</title>
 
 <style>
+  body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  text-align: center;
+  padding: 40px;
+  overflow-x: hidden;
+}
+
+/* Parallax background layers */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('coffee-beans.jpg') repeat;
+  background-size: cover;
+  z-index: -2;
+  transform: translateZ(-1px) scale(2);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+
+.coffee-options {
+  margin-bottom: 30px;
+}
+
+.coffee-btn {
+  background: #1e3c72;
+  border: none;
+  color: #fff;
+  padding: 12px 24px;
+  margin: 8px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.coffee-btn:hover {
+  background: #2a5298;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.coffee-display {
+  perspective: 1000px;
+  margin-top: 20px;
+}
+
+.coffee-card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.coffee-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.coffee-card h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffcc00, #ff6600, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #ff6600; }
+  to { text-shadow: 0 0 25px #ffcc00; }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #ffcc00;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .1em;
+  animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #ffcc00 }
+}
+
+.coffee-card img {
+  border-radius: 15px;
+  margin: 20px 0;
+  width: 250px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+  position: relative;
+}
+
+/* Latte art overlay */
+.coffee-card img::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('latte-art.png') center/cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.coffee-card img:hover::after {
+  opacity: 0.7;
+  animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 0.7; }
+  }
 *{
   margin:0;
   padding:0;
@@ -14,6 +153,18 @@
 }
 
 body{
+  <!-- Coffee Options -->
+<div class="coffee-options">
+  <button class="coffee-btn" onclick="showCoffee('espresso')">Espresso</button>
+  <button class="coffee-btn" onclick="showCoffee('cappuccino')">Cappuccino</button>
+  <button class="coffee-btn" onclick="showCoffee('mocha')">Mocha</button>
+  <button class="coffee-btn" onclick="showCoffee('iced')">Iced Coffee</button>
+</div>
+
+<!-- Display Area -->
+<div id="coffee-display" class="coffee-display">
+  <h2 class="placeholder typewriter">☕ Select a coffee to see details</h2>
+</div>
   background: linear-gradient(135deg,#07121f,#0b2a3f);
   color:#fff;
   overflow-x:hidden;
@@ -199,6 +350,62 @@ nav a:hover{
 </div>
 
 <script>
+  function showCoffee(type) {
+    let content = "";
+
+    if (type === "espresso") {
+      content = `
+        <div class="coffee-card">
+          <h2>Espresso</h2>
+          <img src="espresso.jpg" alt="Espresso">
+          <p><strong>Ingredients:</strong> Finely ground coffee beans, hot water</p>
+          <p><strong>How to make:</strong> Brew under high pressure for a strong, bold shot.</p>
+        </div>
+      `;
+    } else if (type === "cappuccino") {
+      content = `
+        <div class="coffee-card">
+          <h2>Cappuccino</h2>
+          <img src="cappuccino.jpg" alt="Cappuccino">
+          <p><strong>Ingredients:</strong> Espresso, steamed milk, milk foam</p>
+          <p><strong>How to make:</strong> Pour espresso, add steamed milk, top with foam.</p>
+        </div>
+      `;
+    } else if (type === "mocha") {
+      content = `
+        <div class="coffee-card">
+          <h2>Mocha</h2>
+          <img src="mocha.jpg" alt="Mocha">
+          <p><strong>Ingredients:</strong> Espresso, chocolate syrup, steamed milk, whipped cream</p>
+          <p><strong>How to make:</strong> Mix espresso with chocolate, add milk, top with cream.</p>
+        </div>
+      `;
+    } else if (type === "iced") {
+      content = `
+        <div class="coffee-card">
+          <h2>Iced Coffee</h2>
+          <img src="icedcoffee.jpg" alt="Iced Coffee">
+          <p><strong>Ingredients:</strong> Brewed coffee, ice cubes, milk or sugar (optional)</p>
+          <p><strong>How to make:</strong> Brew coffee, chill, pour over ice, add milk/sugar if desired.</p>
+        </div>
+      `;
+    }
+
+    document.getElementById("coffee-display").innerHTML = content;
+
+    // Apply scroll-triggered animation
+    const card = document.querySelector('.coffee-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(card);
+  }
+
 function openExplore(){
   document.getElementById("explorePage").classList.add("active");
 }
