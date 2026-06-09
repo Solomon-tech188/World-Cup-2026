@@ -1,39 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Explorer</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f1eb;
+    text-align:center;
+    margin:0;
+    padding:30px;
+}
+
+h1{
+    color:#5c3b22;
+}
+
+.coffee-btn{
+    background:#6f4e37;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.coffee-btn:hover{
+    transform:scale(1.05);
+    background:#8b5e3c;
+}
+
+.coffee-card{
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    opacity:0;
+    transform:translateY(30px);
+    transition:all 0.6s ease;
+}
+
+.coffee-card.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.coffee-card img{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.info{
+    text-align:left;
+    margin-top:15px;
+}
+
+.info p{
+    margin:10px 0;
+}
+</style>
+</head>
+
+<body>
+
+<h1>☕ Coffee Explorer</h1>
+
+<button class="coffee-btn" onclick="showCoffee('espresso')">
+Explore Espresso
+</button>
+
+<div id="coffee-display"></div>
+
 <script>
-  function showCoffee(type) {
-    let content = "";
 
-    if (type === "espresso") {
-      content = `
-        <div class="coffee-card">
-          <h2>Espresso</h2>
-          <!-- Use your uploaded espresso photo -->
-          <img src="espresso.jpg" alt="Espresso">
+function showCoffee(type){
 
-          <p><strong>Choose your espresso style:</strong></p>
-          <select id="espressoChoice" class="coffee-btn">
-            <option value="single">Single Shot</option>
-            <option value="double">Double Shot</option>
-            <option value="ristretto">Ristretto</option>
-            <option value="lungo">Lungo</option>
-          </select>
+let content="";
 
-          <p><strong>Ingredients:</strong></p>
-          <ul style="list-style:none; padding:0;">
-            <li>☕ Finely ground coffee beans</li>
-            <li>💧 Hot water</li>
-          </ul>
+if(type==="espresso"){
 
-          <p><strong>How to make:</strong> Brew under high pressure for a strong, bold shot.</p>
-        </div>
-      `;
-    }
+content=`
 
-    document.getElementById("coffee-display").innerHTML = content;
+<div class="coffee-card">
 
-    // Apply animation when card appears
-    const card = document.querySelector('.coffee-card');
-    if (card) {
-      card.classList.add('visible');
-    }
-  }
+<h2>☕ Espresso</h2>
+
+<img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=1200"
+alt="Espresso">
+
+<p>
+Espresso is the foundation of many coffee drinks and is loved for its rich flavor and strong caffeine kick.
+</p>
+
+<div class="info">
+
+<h3>📋 Information</h3>
+
+<p><strong>Price:</strong> $2 - $5</p>
+
+<p><strong>Calories:</strong> 3 kcal</p>
+
+<p><strong>Caffeine:</strong> 63 mg per shot</p>
+
+<p><strong>Origin:</strong> Italy 🇮🇹</p>
+
+<p><strong>Brewing Time:</strong> 25-30 seconds</p>
+
+<p><strong>Best Served:</strong> Hot</p>
+
+<h3>🧂 Ingredients</h3>
+
+<ul>
+<li>☕ Finely Ground Coffee Beans</li>
+<li>💧 Hot Water</li>
+</ul>
+
+<h3>🛠 How It's Made</h3>
+
+<p>
+Hot water is forced through finely-ground coffee at high pressure,
+creating a concentrated shot with a creamy golden layer called crema.
+</p>
+
+<h3>⭐ Fun Facts</h3>
+
+<ul>
+<li>Invented in Italy.</li>
+<li>Base of Latte, Cappuccino and Americano.</li>
+<li>One of the most popular coffee styles in the world.</li>
+</ul>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+document.getElementById("coffee-display").innerHTML = content;
+
+setTimeout(()=>{
+const card=document.querySelector(".coffee-card");
+if(card){
+card.classList.add("visible");
+}
+},50);
+
+}
+
 </script>
+
+</body>
+  </html>
