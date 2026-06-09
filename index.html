@@ -1,259 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Coffee Shop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup 2026</title><style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
 
-<style>
-  * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
-  }
+body{
+background:#0b1020;
+color:white;
+overflow-x:hidden;
+}
 
-  body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    overflow-x: hidden;
-  }
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),
+url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600');
+background-size:cover;
+background-position:center;
+}
 
-  header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-    background:rgba(0,0,0,0.4);
-    position:sticky;
-    top:0;
-    z-index:100;
-  }
+h1{
+font-size:4rem;
+margin-bottom:20px;
+animation:fadeUp 1s ease;
+}
 
-  .logo {
-    font-size:24px;
-    font-weight:bold;
-  }
+p{
+font-size:1.2rem;
+max-width:700px;
+margin-bottom:30px;
+animation:fadeUp 1.5s ease;
+}
 
-  nav a {
-    color:#fff;
-    margin:0 12px;
-    text-decoration:none;
-    opacity:0.7;
-    transition:0.3s;
-  }
-  nav a:hover { opacity:1; }
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#00c896;
+color:white;
+text-decoration:none;
+border-radius:30px;
+transition:.3s;
+}
 
-  .hero {
-    text-align:center;
-    padding:80px 20px;
-    animation:fadeIn 1.2s ease;
-  }
+.btn:hover{
+transform:scale(1.08);
+}
 
-  .hero h1 {
-    font-size:52px;
-    margin-bottom:15px;
-    background: linear-gradient(90deg,#ffcc00,#ff6600,#ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glow 2s infinite alternate;
-  }
+section{
+padding:80px 10%;
+}
 
-  .hero p {
-    opacity:0.8;
-    font-size:18px;
-    margin-bottom:25px;
-  }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
 
-  .btn {
-    padding:12px 26px;
-    background:linear-gradient(90deg,#2aa8ff,#6dd5ff);
-    border:none;
-    border-radius:30px;
-    color:white;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
-  }
-  .btn:hover { transform:scale(1.05); }
+.card{
+background:#141b31;
+padding:25px;
+border-radius:20px;
+transition:.4s;
+}
 
-  .coffee-options {
-    text-align:center;
-    margin:40px 0;
-  }
+.card:hover{
+transform:translateY(-10px);
+}
 
-  .coffee-btn {
-    background: #1e3c72;
-    border: none;
-    color: #fff;
-    padding: 12px 24px;
-    margin: 8px;
-    font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-  .coffee-btn:hover {
-    background: #2a5298;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-  }
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:15px;
+}
 
-  .coffee-display {
-    text-align:center;
-    margin-top:20px;
-  }
+footer{
+padding:30px;
+text-align:center;
+background:#050814;
+}
 
-  .coffee-card {
-    background: rgba(255,255,255,0.08);
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    display:inline-block;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  .coffee-card img {
-    border-radius: 15px;
-    margin: 20px 0;
-    width: 250px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    transition: transform 0.4s ease;
-  }
-  .coffee-card img:hover { transform:scale(1.05); }
-
-  /* Slider */
-  .slider {
-    display:flex;
-    gap:20px;
-    overflow-x:auto;
-    padding:30px 50px;
-    scroll-snap-type:x mandatory;
-  }
-  .slide {
-    min-width:220px;
-    background:rgba(255,255,255,0.06);
-    padding:20px;
-    border-radius:15px;
-    scroll-snap-align:start;
-    transition:0.3s;
-    text-align:center;
-  }
-  .slide:hover { transform:translateY(-8px); }
-
-  /* Explore Page */
-  .explore-page {
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:#0b2a3f;
-    transform:translateY(100%);
-    transition:0.7s ease;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:200;
-  }
-  .explore-page.active { transform:translateY(0); }
-
-  /* Animations */
-  @keyframes fadeIn {
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-  }
-  @keyframes glow {
-    from { text-shadow: 0 0 10px #ff6600; }
-    to { text-shadow: 0 0 25px #ffcc00; }
-  }
-  @keyframes float {
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0px);}
-  }
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="logo">☕ Coffee World</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Menu</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Fresh Coffee Every Morning</h1>
-  <p>Experience premium coffee with smooth taste, rich aroma, and modern cafe vibes.</p>
-  <button class="btn" onclick="openExplore()">Explore Menu</button>
-</section>
-
-<!-- Coffee Options -->
-<div class="coffee-options">
-  <button class="coffee-btn" onclick="showCoffee('espresso')">Espresso</button>
-  <button class="coffee-btn" onclick="showCoffee('cappuccino')">Cappuccino</button>
-  <button class="coffee-btn" onclick="showCoffee('mocha')">Mocha</button>
-  <button class="coffee-btn" onclick="showCoffee('iced')">Iced Coffee</button>
-</div>
-
-<!-- Display Area -->
-<div id="coffee-display" class="coffee-display">
-  <h2 class="placeholder">☕ Select a coffee to see details</h2>
-</div>
-
-<!-- Slider -->
-<section class="slider">
-  <div class="slide">☕ Espresso<br><small>Strong & bold</small></div>
-  <div class="slide">🥛 Cappuccino<br><small>Foamy & soft</small></div>
-  <div class="slide">🍫 Mocha<br><small>Chocolate mix</small></div>
-  <div class="slide">🧊 Iced Coffee<br><small>Cold & refreshing</small></div>
-</section>
-
-<!-- Explore Page -->
-<div class="explore-page" id="explorePage">
-  <h1>Welcome to Coffee Menu</h1>
-  <p>More content coming soon...</p>
-  <button class="btn" onclick="closeExplore()">Go Back</button>
-</div>
-
-<script>
- <a href="Espresso.html" class="coffee-btn">
-    Explore Espresso ☕
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style></head><body><header>
+<h1>FIFA World Cup 2026</h1>
+<p>
+Explore teams, players, stadiums, predictions and everything about the biggest football tournament on Earth.
+</p><a href="#explore" class="btn">
+Explore
 </a>
- <a href="index.html">
-    <button>⬅ Back Home</button>
-</a>
-
-  function showCoffee(type) {
-    let content = "";
-    if (type === "espresso") {
-      content = `
-        <div class="coffee-card">
-          <h2>Espresso</h2>
-          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Espresso">
-          <p><strong>Ingredients:</strong> Finely ground coffee beans, hot water</p>
-          <p><strong>How to make:</strong> Brew under high pressure for a strong, bold shot.</p>
-        </div>`;
-    } else if (type === "cappuccino") {
-      content = `
-        <div class="coffee-card">
-          <h2>Cappuccino</h2>
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Cappuccino">
-          <p><strong>Ingredients:</strong> Espresso, steamed milk, milk foam</p>
-          <p><strong>How to make:</strong> Pour espresso, add steamed milk, top with foam.</p>
-        </div>`;
-    } else if (type === "mocha") {
-      content = `
-        <div class="coffee-card">
-          <h2>Mocha</h2>
-          <img src="https://images.unsplash.com/photo-1523942839745-7848d4a7aa2b" alt="Mocha">
-          <p><strong>Ingredients:</strong> Espresso, chocolate syrup, steamed milk, whipped cream</p>
-          <p><strong>How to make:</strong> Mix espresso with chocolate
-</script>
-</body>
+</header><section id="explore">
+<h2 style="margin-bottom:30px;">Explore</h2><div class="cards"><div class="card">
+<img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800">
+<h3>Teams</h3>
+<p>Discover all participating nations.</p>
+</div><div class="card">
+<img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800">
+<h3>Players</h3>
+<p>Star players and future legends.</p>
+</div><div class="card">
+<img src="https://images.unsplash.com/photo-1508098682722-e99c643e7485?w=800">
+<h3>Predictions</h3>
+<p>See tournament winner predictions.</p>
+</div><div class="card">
+<img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=800">
+<h3>Stadiums</h3>
+<p>Explore World Cup venues.</p>
+</div></div>
+</section><footer>
+<p>World Cup 2026 Fan Website</p>
+</footer></body>
+       </html>
