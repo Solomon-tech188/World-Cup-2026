@@ -1,0 +1,39 @@
+<script>
+  function showCoffee(type) {
+    let content = "";
+
+    if (type === "espresso") {
+      content = `
+        <div class="coffee-card">
+          <h2>Espresso</h2>
+          <!-- Use your uploaded espresso photo -->
+          <img src="espresso.jpg" alt="Espresso">
+
+          <p><strong>Choose your espresso style:</strong></p>
+          <select id="espressoChoice" class="coffee-btn">
+            <option value="single">Single Shot</option>
+            <option value="double">Double Shot</option>
+            <option value="ristretto">Ristretto</option>
+            <option value="lungo">Lungo</option>
+          </select>
+
+          <p><strong>Ingredients:</strong></p>
+          <ul style="list-style:none; padding:0;">
+            <li>☕ Finely ground coffee beans</li>
+            <li>💧 Hot water</li>
+          </ul>
+
+          <p><strong>How to make:</strong> Brew under high pressure for a strong, bold shot.</p>
+        </div>
+      `;
+    }
+
+    document.getElementById("coffee-display").innerHTML = content;
+
+    // Apply animation when card appears
+    const card = document.querySelector('.coffee-card');
+    if (card) {
+      card.classList.add('visible');
+    }
+  }
+</script>
