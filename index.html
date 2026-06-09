@@ -10,41 +10,76 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   body {
-    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: #fff;
-    text-align: center;
-    padding: 40px;
     overflow-x: hidden;
   }
 
-  /* Parallax background layers */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('coffee-beans.jpg') repeat;
-    background-size: cover;
-    z-index: -2;
-    transform: translateZ(-1px) scale(2);
+  header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.4);
+    position:sticky;
+    top:0;
+    z-index:100;
   }
 
-  body::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: -1;
+  .logo {
+    font-size:24px;
+    font-weight:bold;
   }
+
+  nav a {
+    color:#fff;
+    margin:0 12px;
+    text-decoration:none;
+    opacity:0.7;
+    transition:0.3s;
+  }
+  nav a:hover { opacity:1; }
+
+  .hero {
+    text-align:center;
+    padding:80px 20px;
+    animation:fadeIn 1.2s ease;
+  }
+
+  .hero h1 {
+    font-size:52px;
+    margin-bottom:15px;
+    background: linear-gradient(90deg,#ffcc00,#ff6600,#ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+  }
+
+  .hero p {
+    opacity:0.8;
+    font-size:18px;
+    margin-bottom:25px;
+  }
+
+  .btn {
+    padding:12px 26px;
+    background:linear-gradient(90deg,#2aa8ff,#6dd5ff);
+    border:none;
+    border-radius:30px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+  }
+  .btn:hover { transform:scale(1.05); }
 
   .coffee-options {
-    margin-bottom: 30px;
+    text-align:center;
+    margin:40px 0;
   }
 
   .coffee-btn {
@@ -59,7 +94,6 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
-
   .coffee-btn:hover {
     background: #2a5298;
     transform: translateY(-3px) scale(1.05);
@@ -67,59 +101,18 @@
   }
 
   .coffee-display {
-    perspective: 1000px;
-    margin-top: 20px;
+    text-align:center;
+    margin-top:20px;
   }
 
   .coffee-card {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.08);
     padding: 30px;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    transform-style: preserve-3d;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-  }
-
-  .coffee-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .coffee-card h2 {
-    font-size: 28px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #ffcc00, #ff6600, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: glow 2s infinite alternate;
-  }
-
-  @keyframes glow {
-    from { text-shadow: 0 0 10px #ff6600; }
-    to { text-shadow: 0 0 25px #ffcc00; }
-  }
-
-  .typewriter {
-    overflow: hidden;
-    border-right: .15em solid #ffcc00;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .1em;
-    animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
-  }
-
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #ffcc00 }
+    display:inline-block;
+    animation: float 3s ease-in-out infinite;
   }
 
   .coffee-card img {
@@ -128,97 +121,10 @@
     width: 250px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
     transition: transform 0.4s ease;
-    position: relative;
   }
+  .coffee-card img:hover { transform:scale(1.05); }
 
-  /* Latte art overlay */
-  .coffee-card img::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('latte-art.png') center/cover no-repeat;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
-
-  .coffee-card img:hover::after {
-    opacity: 0.7;
-    animation: ripple 2s infinite;
-  }
-
-  @keyframes ripple {
-    0% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.05); opacity: 0.9; }
-    100% { transform: scale(1); opacity: 0.7; }
-  }
-
-  /* NAV */
-  header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-  }
-
-  .logo {
-    font-size:22px;
-    font-weight:bold;
-  }
-
-  nav a {
-    color:#fff;
-    margin:0 12px;
-    text-decoration:none;
-    opacity:0.7;
-    transition:0.3s;
-  }
-  nav a:hover {
-    opacity:1;
-  }
-
-  /* HERO */
-  .hero {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:60px;
-    flex-wrap:wrap;
-  }
-
-  .hero-text {
-    max-width:500px;
-    animation:fadeIn 1s ease;
-  }
-
-  .hero-text h1 {
-    font-size:52px;
-    margin-bottom:15px;
-  }
-
-  .hero-text p {
-    opacity:0.7;
-    line-height:1.6;
-  }
-
-  /* BUTTON */
-  .btn {
-    margin-top:20px;
-    padding:12px 26px;
-    background:linear-gradient(90deg,#2aa8ff,#6dd5ff);
-    border:none;
-    border-radius:30px;
-    color:white;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
-  }
-
-  .btn:hover {
-    transform:scale(1.05);
-  }
-
-  /* SLIDER SECTION */
+  /* Slider */
   .slider {
     display:flex;
     gap:20px;
@@ -226,7 +132,6 @@
     padding:30px 50px;
     scroll-snap-type:x mandatory;
   }
-
   .slide {
     min-width:220px;
     background:rgba(255,255,255,0.06);
@@ -234,19 +139,15 @@
     border-radius:15px;
     scroll-snap-align:start;
     transition:0.3s;
+    text-align:center;
   }
+  .slide:hover { transform:translateY(-8px); }
 
-  .slide:hover {
-    transform:translateY(-8px);
-  }
-
-  /* EXPLORE PAGE ANIMATION */
+  /* Explore Page */
   .explore-page {
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    top:0; left:0;
+    width:100%; height:100%;
     background:#0b2a3f;
     transform:translateY(100%);
     transition:0.7s ease;
@@ -254,18 +155,19 @@
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    z-index:200;
   }
+  .explore-page.active { transform:translateY(0); }
 
-  .explore-page.active {
-    transform:translateY(0);
-  }
-
-  /* ANIMATIONS */
+  /* Animations */
   @keyframes fadeIn {
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
   }
-
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #ff6600; }
+    to { text-shadow: 0 0 25px #ffcc00; }
+  }
   @keyframes float {
     0%{transform:translateY(0px);}
     50%{transform:translateY(-10px);}
@@ -286,6 +188,12 @@
   </nav>
 </header>
 
+<section class="hero">
+  <h1>Fresh Coffee Every Morning</h1>
+  <p>Experience premium coffee with smooth taste, rich aroma, and modern cafe vibes.</p>
+  <button class="btn" onclick="openExplore()">Explore Menu</button>
+</section>
+
 <!-- Coffee Options -->
 <div class="coffee-options">
   <button class="coffee-btn" onclick="showCoffee('espresso')">Espresso</button>
@@ -296,10 +204,49 @@
 
 <!-- Display Area -->
 <div id="coffee-display" class="coffee-display">
-  <h2 class="placeholder typewriter">☕ Select a coffee to see details</h2>
+  <h2 class="placeholder">☕ Select a coffee to see details</h2>
 </div>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Fresh Coffee<br>Every Morning</h1>
-    <p>Experience premium coffee with
+<!-- Slider -->
+<section class="slider">
+  <div class="slide">☕ Espresso<br><small>Strong & bold</small></div>
+  <div class="slide">🥛 Cappuccino<br><small>Foamy & soft</small></div>
+  <div class="slide">🍫 Mocha<br><small>Chocolate mix</small></div>
+  <div class="slide">🧊 Iced Coffee<br><small>Cold & refreshing</small></div>
+</section>
+
+<!-- Explore Page -->
+<div class="explore-page" id="explorePage">
+  <h1>Welcome to Coffee Menu</h1>
+  <p>More content coming soon...</p>
+  <button class="btn" onclick="closeExplore()">Go Back</button>
+</div>
+
+<script>
+  function showCoffee(type) {
+    let content = "";
+    if (type === "espresso") {
+      content = `
+        <div class="coffee-card">
+          <h2>Espresso</h2>
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Espresso">
+          <p><strong>Ingredients:</strong> Finely ground coffee beans, hot water</p>
+          <p><strong>How to make:</strong> Brew under high pressure for a strong, bold shot.</p>
+        </div>`;
+    } else if (type === "cappuccino") {
+      content = `
+        <div class="coffee-card">
+          <h2>Cappuccino</h2>
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Cappuccino">
+          <p><strong>Ingredients:</strong> Espresso, steamed milk, milk foam</p>
+          <p><strong>How to make:</strong> Pour espresso, add steamed milk, top with foam.</p>
+        </div>`;
+    } else if (type === "mocha") {
+      content = `
+        <div class="coffee-card">
+          <h2>Mocha</h2>
+          <img src="https://images.unsplash.com/photo-1523942839745-7848d4a7aa2b" alt="Mocha">
+          <p><strong>Ingredients:</strong> Espresso, chocolate syrup, steamed milk, whipped cream</p>
+          <p><strong>How to make:</strong> Mix espresso with chocolate
+</script>
+</body>
