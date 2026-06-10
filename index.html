@@ -1,134 +1,280 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Cup 2026</title><style>
+<title>Summit Accessories</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#0b1020;
-color:white;
+background:#0b0b0b;
 overflow-x:hidden;
 }
 
-header{
+.hero{
 height:100vh;
+background:linear-gradient(135deg,#ff4b7d,#ff7f50,#ffd0a8);
+position:relative;
+overflow:hidden;
 display:flex;
 flex-direction:column;
-justify-content:center;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
 align-items:center;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),
-url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600');
-background-size:cover;
-background-position:center;
+padding:25px 60px;
+z-index:10;
 }
 
-h1{
-font-size:4rem;
-margin-bottom:20px;
-animation:fadeUp 1s ease;
-}
-
-p{
-font-size:1.2rem;
-max-width:700px;
-margin-bottom:30px;
-animation:fadeUp 1.5s ease;
-}
-
-.btn{
-display:inline-block;
-padding:15px 35px;
-background:#00c896;
+.logo{
+font-size:42px;
+font-weight:800;
 color:white;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
 text-decoration:none;
+color:white;
+padding:12px 25px;
+border:1px solid rgba(255,255,255,.3);
 border-radius:30px;
-transition:.3s;
-}
-
-.btn:hover{
-transform:scale(1.08);
-}
-
-section{
-padding:80px 10%;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#141b31;
-padding:25px;
-border-radius:20px;
+backdrop-filter:blur(10px);
 transition:.4s;
 }
 
-.card:hover{
-transform:translateY(-10px);
+.nav-links a:hover{
+background:white;
+color:#ff4b7d;
 }
 
-.card img{
-width:100%;
+.content{
+flex:1;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 60px;
+z-index:10;
+}
+
+.left{
+max-width:650px;
+}
+
+.left h1{
+font-size:90px;
+line-height:1;
+color:white;
+font-weight:800;
+animation:slideLeft 1s ease;
+}
+
+.left p{
+margin-top:20px;
+font-size:22px;
+color:white;
+opacity:.9;
+animation:slideLeft 1.3s ease;
+}
+
+.buttons{
+margin-top:30px;
+display:flex;
+gap:15px;
+}
+
+.btn{
+padding:15px 35px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:18px;
+font-weight:600;
+transition:.4s;
+}
+
+.primary{
+background:white;
+color:#ff4b7d;
+}
+
+.secondary{
+background:transparent;
+border:2px solid white;
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.right{
+position:relative;
+width:500px;
+height:500px;
+}
+
+.circle{
+position:absolute;
+border-radius:50%;
+background:linear-gradient(145deg,#ffffff60,#ffffff10);
+backdrop-filter:blur(15px);
+animation:float 6s infinite ease-in-out;
+}
+
+.c1{
+width:220px;
+height:220px;
+top:0;
+left:100px;
+}
+
+.c2{
+width:180px;
 height:180px;
-object-fit:cover;
-border-radius:15px;
-margin-bottom:15px;
+bottom:70px;
+left:0;
+animation-delay:1s;
 }
 
-footer{
-padding:30px;
-text-align:center;
-background:#050814;
+.c3{
+width:260px;
+height:260px;
+bottom:0;
+right:0;
+animation-delay:2s;
 }
 
-@keyframes fadeUp{
+.c4{
+width:130px;
+height:130px;
+top:120px;
+right:80px;
+animation-delay:3s;
+}
+
+.bottom-menu{
+position:absolute;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+background:#ff6247;
+padding:15px 35px;
+border-radius:60px;
+display:flex;
+gap:30px;
+color:white;
+font-weight:600;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0px) rotate(0deg);
+}
+50%{
+transform:translateY(-25px) rotate(10deg);
+}
+}
+
+@keyframes slideLeft{
 from{
 opacity:0;
-transform:translateY(50px);
+transform:translateX(-50px);
 }
 to{
 opacity:1;
-transform:translateY(0);
+transform:translateX(0);
 }
 }
-</style></head><body><header>
-<h1>FIFA World Cup 2026</h1>
+
+@media(max-width:900px){
+
+.content{
+flex-direction:column;
+text-align:center;
+padding-top:40px;
+}
+
+.left h1{
+font-size:55px;
+}
+
+.right{
+width:320px;
+height:320px;
+margin-top:40px;
+}
+
+.bottom-menu{
+display:none;
+}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<nav>
+<div class="logo">Summit</div>
+
+<div class="nav-links">
+<a href="#">Products</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</div>
+</nav>
+
+<div class="content">
+
+<div class="left">
+<h1>Premium Aluminum Accessories</h1>
+
 <p>
-Explore teams, players, stadiums, predictions and everything about the biggest football tournament on Earth.
-</p><a href="#explore" class="btn">
-Explore
-</a>
-</header><section id="explore">
-<h2 style="margin-bottom:30px;">Explore</h2><div class="cards"><div class="card">
-<img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800">
-<h3>Teams</h3>
-<p>Discover all participating nations.</p>
-</div><div class="card">
-<img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800">
-<h3>Players</h3>
-<p>Star players and future legends.</p>
-</div><div class="card">
-<img src="https://images.unsplash.com/photo-1508098682722-e99c643e7485?w=800">
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?w=800" alt="Prediction">
-  <h3>Predictions</h3>
-  <p>See tournament winner predictions and match forecasts.</p>
-</div></div>
-<img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=800">
-<h3>Stadiums</h3>
-<p>Explore World Cup venues.</p>
-</div></div>
-</section><footer>
-<p>World Cup 2026 Fan Website</p>
-</footer></body>
-       </html>
+Strong. Elegant. Durable. Discover world-class aluminum
+accessories designed for modern homes, offices and industries.
+</p>
+
+<div class="buttons">
+<button class="btn primary">Explore Products</button>
+<button class="btn secondary">Learn More</button>
+</div>
+</div>
+
+<div class="right">
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+<div class="circle c4"></div>
+</div>
+
+</div>
+
+<div class="bottom-menu">
+<span>Home</span>
+<span>Accessories</span>
+<span>Projects</span>
+<span>Company</span>
+</div>
+
+</section>
+
+</body>
+  </html>
