@@ -8,6 +8,105 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+.learn-btn{
+    display:inline-block;
+    margin:20px 15px;
+    padding:16px 38px;
+    font-family:'Trebuchet MS',sans-serif;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(45deg,#ff7b00,#ffcc00);
+    border-radius:50px;
+    box-shadow:0 0 20px rgba(255,187,0,.5);
+    transition:all .4s ease;
+}
+
+.learn-btn:hover{
+    transform:translateY(-5px) scale(1.08);
+    box-shadow:0 0 35px rgba(255,187,0,1);
+    }
+    
+.button-container{
+    text-align:center;
+    margin-top:40px;
+    }
+    
+body{
+
+<div class="button-container">
+    <a href="products.html" class="explore-btn">Explore Products🚀</a>
+    <a href="#" class="learn-btn">Learn More✨️</a>
+</div>
+    
+    margin:0;
+    overflow-x:hidden;
+    background:#0f172a;
+    color:white;
+}
+
+.particle{
+    position:fixed;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+    opacity:0.6;
+    animation:float 10s linear infinite;
+    z-index:-1;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-100px);
+    }
+    }
+    
+/* Animated Background */
+.wave{
+    position:fixed;
+    width:200%;
+    height:200px;
+    background:rgba(0,229,255,0.15);
+    border-radius:43%;
+    animation:waveMove 12s linear infinite;
+    z-index:-1;
+}
+
+.wave1{
+    bottom:-100px;
+    left:-50%;
+}
+
+.wave2{
+    bottom:-120px;
+    left:-50%;
+    animation-duration:18s;
+    opacity:0.5;
+}
+
+.wave3{
+    bottom:-140px;
+    left:-50%;
+    animation-duration:24s;
+    opacity:0.3;
+}
+
+@keyframes waveMove{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+    }
+    
 *{
 margin:0;
 padding:0;
@@ -16,10 +115,23 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
+
+<div class="wave wave1"></div>
+<div class="wave wave2"></div>
+<div class="wave wave3"></div>
+    
 background:#0b0b0b;
 overflow-x:hidden;
 }
 
+<div class="particle" style="left:10%;animation-delay:0s;"></div>
+<div class="particle" style="left:25%;animation-delay:2s;"></div>
+<div class="particle" style="left:40%;animation-delay:4s;"></div>
+<div class="particle" style="left:55%;animation-delay:1s;"></div>
+<div class="particle" style="left:70%;animation-delay:3s;"></div>
+<div class="particle" style="left:85%;animation-delay:5s;"></div>
+
+    
 .hero{
 height:100vh;
 background:linear-gradient(135deg,#ff4b7d,#ff7f50,#ffd0a8);
@@ -127,7 +239,54 @@ gap:15px;
     100%{
         transform:scale(1);
       }
-  
+
+body{
+    margin:0;
+    overflow-x:hidden;
+    background:#0f172a;
+    color:white;
+}
+
+/* Animated Background */
+.wave{
+    position:fixed;
+    width:200%;
+    height:200px;
+    background:rgba(0,229,255,0.15);
+    border-radius:43%;
+    animation:waveMove 12s linear infinite;
+    z-index:-1;
+}
+
+.wave1{
+    bottom:-100px;
+    left:-50%;
+}
+
+.wave2{
+    bottom:-120px;
+    left:-50%;
+    animation-duration:18s;
+    opacity:0.5;
+}
+
+.wave3{
+    bottom:-140px;
+    left:-50%;
+    animation-duration:24s;
+    opacity:0.3;
+}
+
+@keyframes waveMove{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+        
+
+    
 .btn{
 padding:15px 35px;
 border:none;
@@ -283,8 +442,8 @@ accessories designed for modern homes, offices and industries.
 </p>
 
 <div class="buttons">
-<a href="products.html" class="explore-btn">Explore Products🚀</a>  
-<button class="btn secondary">Learn More</button>
+<a href="products.html" class="explore-btn">Explore Products🚀</a>
+<a href="#" class="learn-btn">Learn More✨️</a>
 </div>
 
 <div class="right">
