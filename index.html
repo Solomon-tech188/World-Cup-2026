@@ -98,6 +98,36 @@ display:flex;
 gap:15px;
 }
 
+.explore-btn{
+    display:inline-block;
+    padding:15px 35px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(45deg,#00e5ff,#0066ff);
+    border-radius:50px;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(0,229,255,0.6);
+    animation:pulse 2s infinite;
+}
+
+.explore-btn:hover{
+    transform:translateY(-5px) scale(1.1);
+    box-shadow:0 0 35px rgba(0,229,255,1);
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+    100%{
+        transform:scale(1);
+      }
+  
 .btn{
 padding:15px 35px;
 border:none;
@@ -253,8 +283,7 @@ accessories designed for modern homes, offices and industries.
 </p>
 
 <div class="buttons">
-<a href="#products" class="btn primary">Explore Products</a>
-  <a href="products.html" class="nav-btn">Explore Products</a>  
+<a href="products.html" class="explore-btn">Explore Products🚀</a>  
 <button class="btn secondary">Learn More</button>
 </div>
 
