@@ -9,6 +9,38 @@
 
 <style>
 
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.75)
+        ),
+        url("1000106478.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+}
+    
+    
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at right,
+        rgba(255,215,0,0.15),
+        transparent 50%
+    );
+    pointer-events: none;
+}
+
+
 .learn-btn{
     display:inline-block;
     margin:20px 15px;
