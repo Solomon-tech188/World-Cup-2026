@@ -1,154 +1,113 @@
-<section class="about-section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="about-container">
+<title>About Summit Aluminum Accessories</title>
 
-<h1 class="about-title">About Summit Aluminum Accessories</h1>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<p class="about-text">
-Summit Aluminum Accessories is a trusted supplier of premium aluminum hardware and accessories designed for modern homes, offices, commercial buildings, and industrial projects.
-</p>
-
-<div class="info-card">
-<h2>🏆 Our Mission</h2>
-<p>
-To provide innovative, durable, and high-quality aluminum accessories that combine strength, functionality, and modern design.
-</p>
-</div>
-
-<div class="info-card">
-<h2>⭐ Why Choose Us?</h2>
-<ul>
-<li>Premium Quality Products</li>
-<li>Rust Resistant Materials</li>
-<li>Long Lasting Performance</li>
-<li>Modern Elegant Designs</li>
-<li>Professional Customer Support</li>
-</ul>
-</div>
-
-<div class="info-card">
-<h2>🛠 Our Products</h2>
-<p>
-We specialize in aluminum connectors, hinges, door locks, window handles, slide connectors, and custom aluminum accessories for residential and industrial applications.
-</p>
-</div>
-
-<div class="info-card">
-<h2>🌍 Our Vision</h2>
-<p>
-To become a leading provider of aluminum accessories by delivering products that meet international standards of quality and innovation.
-</p>
-</div>
-
-<div class="stats">
-
-<div class="stat-box">
-<h3>500+</h3>
-<p>Projects</p>
-</div>
-
-<div class="stat-box">
-<h3>1000+</h3>
-<p>Customers</p>
-</div>
-
-<div class="stat-box">
-<h3>100%</h3>
-<p>Quality Focus</p>
-</div>
-
-</div>
-
-</div>
-
-  </section>
-
-
-
-<h1>About Summit Aluminum Accessories</h1>
-
-<p>
-Summit Aluminum Accessories is committed to providing high-quality aluminum hardware and accessories for residential, commercial, and industrial applications.
-</p>
-
-<p>
-Our products are designed with durability, precision, and modern aesthetics in mind. From connectors and hinges to locks and window handles, we offer reliable solutions that meet the highest standards of quality.
-</p>
-
-<h2>Why Choose Us?</h2>
-
-<ul>
-<li>✔ Premium Quality Materials</li>
-<li>✔ Durable and Rust Resistant</li>
-<li>✔ Modern Designs</li>
-<li>✔ Trusted by Professionals</li>
-<li>✔ Excellent Customer Service</li>
-</ul>
-
-<h2>Our Mission</h2>
-
-<p>
-To deliver innovative aluminum accessories that combine strength, functionality, and elegance while helping our customers build better homes, offices, and industrial projects.
-</p>
-</nav>
 <style>
-/* Back Home Button */
-<nav class="top-nav">
-    <a href="index.html" class="home-btn">
-        🏠 Back to Home
-    </a>
-.top-nav{
-    text-align:center;
-    padding:25px 0;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-background:
-linear-gradient(
-135deg,
-#0f0f0f,
-#2d2d2d,
-#5c5c5c,
-#2d2d2d,
-#0f0f0f
-);
-  
+body{
+    overflow-x:hidden;
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f0f0f,
+    #2d2d2d,
+    #5c5c5c,
+    #2d2d2d,
+    #0f0f0f
+    );
+
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+}
+
+/* Animated Background */
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Floating Sparkles */
+
+.sparkle{
+    position:fixed;
+    width:5px;
+    height:5px;
+    background:#FFD700;
+    border-radius:50%;
+    box-shadow:0 0 12px #FFD700;
+    animation:floatSpark 10s linear infinite;
+    z-index:-1;
+}
+
+@keyframes floatSpark{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+/* Navigation */
+
+.top-nav{
+    text-align:center;
+    padding:30px 0;
+}
+
+/* Back Home Button */
+
 .home-btn{
     display:inline-block;
-
-    padding:16px 38px;
+    padding:16px 40px;
 
     background:white;
-
     color:#111;
 
     text-decoration:none;
-
-    font-size:18px;
     font-weight:700;
+    font-size:18px;
 
     border-radius:50px;
 
     position:relative;
     overflow:hidden;
 
+    transition:.4s;
+
     box-shadow:
     0 10px 25px rgba(255,255,255,.25);
-
-    transition:all .4s ease;
 
     animation:floatButton 3s ease-in-out infinite;
 }
 
-/* Shine Animation */
-
 .home-btn::before{
     content:"";
-
     position:absolute;
-
     top:0;
     left:-120%;
-
     width:100%;
     height:100%;
 
@@ -166,10 +125,8 @@ linear-gradient(
     left:120%;
 }
 
-
 .home-btn:hover{
     background:#FFD700;
-
     color:black;
 
     transform:
@@ -181,8 +138,6 @@ linear-gradient(
     0 0 40px rgba(255,215,0,.5);
 }
 
-/* Floating Animation */
-
 @keyframes floatButton{
     0%,100%{
         transform:translateY(0);
@@ -192,4 +147,255 @@ linear-gradient(
         transform:translateY(-6px);
     }
 }
+
+/* About Section */
+
+.about-section{
+    padding:40px 10% 100px;
+}
+
+.about-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.about-title{
+    text-align:center;
+    font-size:65px;
+    color:#FFD700;
+    margin-bottom:25px;
+
+    animation:glow 3s infinite;
+}
+
+@keyframes glow{
+    0%,100%{
+        text-shadow:0 0 10px rgba(255,215,0,.3);
+    }
+
+    50%{
+        text-shadow:
+        0 0 25px rgba(255,215,0,.9),
+        0 0 50px rgba(255,215,0,.5);
+    }
+}
+
+.about-text{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+    color:#ddd;
+    line-height:1.9;
+    font-size:20px;
+    margin-bottom:50px;
+}
+
+/* Cards */
+
+.info-card{
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,215,0,.2);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    margin-bottom:30px;
+
+    transition:.5s;
+
+    animation:fadeUp 1s ease;
+}
+
+.info-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 35px rgba(255,215,0,.35);
+}
+
+.info-card h2{
+    color:#FFD700;
+    margin-bottom:15px;
+}
+
+.info-card p,
+.info-card li{
+    color:#ddd;
+    line-height:1.8;
+}
+
+.info-card ul{
+    padding-left:20px;
+}
+
+/* Statistics */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-top:50px;
+}
+
+.stat-box{
+    width:250px;
+
+    background:rgba(255,215,0,.08);
+
+    border:1px solid rgba(255,215,0,.2);
+
+    border-radius:20px;
+
+    text-align:center;
+
+    padding:35px;
+
+    transition:.5s;
+}
+
+.stat-box:hover{
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 35px rgba(255,215,0,.4);
+}
+
+.stat-box h3{
+    font-size:48px;
+    color:#FFD700;
+}
+
+.stat-box p{
+    margin-top:10px;
+}
+
+/* Animation */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .about-title{
+        font-size:42px;
+    }
+
+    .about-text{
+        font-size:16px;
+    }
+
+    .stat-box{
+        width:100%;
+    }
+}
+
 </style>
+</head>
+
+<body>
+
+<!-- Sparkles -->
+
+<div class="sparkle" style="left:5%;animation-delay:0s;"></div>
+<div class="sparkle" style="left:15%;animation-delay:2s;"></div>
+<div class="sparkle" style="left:25%;animation-delay:4s;"></div>
+<div class="sparkle" style="left:35%;animation-delay:1s;"></div>
+<div class="sparkle" style="left:45%;animation-delay:3s;"></div>
+<div class="sparkle" style="left:55%;animation-delay:5s;"></div>
+<div class="sparkle" style="left:65%;animation-delay:2s;"></div>
+<div class="sparkle" style="left:75%;animation-delay:4s;"></div>
+<div class="sparkle" style="left:85%;animation-delay:1s;"></div>
+<div class="sparkle" style="left:95%;animation-delay:3s;"></div>
+
+<nav class="top-nav">
+    <a href="index.html" class="home-btn">
+        🏠 Back to Home
+    </a>
+</nav>
+
+<section class="about-section">
+
+<div class="about-container">
+
+<h1 class="about-title">About Summit Aluminum Accessories</h1>
+
+<p class="about-text">
+Summit Aluminum Accessories is a trusted supplier of premium aluminum hardware and accessories designed for modern homes, offices, commercial buildings, and industrial projects. We are committed to quality, durability, innovation, and customer satisfaction.
+</p>
+
+<div class="info-card">
+<h2>🏆 Our Mission</h2>
+<p>
+To provide innovative, durable, and high-quality aluminum accessories that combine strength, functionality, and modern design while helping customers build better projects.
+</p>
+</div>
+
+<div class="info-card">
+<h2>⭐ Why Choose Us?</h2>
+<ul>
+<li>Premium Quality Products</li>
+<li>Rust Resistant Materials</li>
+<li>Long Lasting Performance</li>
+<li>Modern Elegant Designs</li>
+<li>Professional Customer Support</li>
+<li>Reliable Manufacturing Standards</li>
+</ul>
+</div>
+
+<div class="info-card">
+<h2>🛠 Our Products</h2>
+<p>
+We specialize in aluminum connectors, hinges, door locks, window handles, slide connectors, and custom aluminum accessories for residential, commercial, and industrial applications.
+</p>
+</div>
+
+<div class="info-card">
+<h2>🌍 Our Vision</h2>
+<p>
+To become a leading provider of aluminum accessories by delivering products that meet international standards of quality, innovation, and customer satisfaction.
+</p>
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3>500+</h3>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat-box">
+<h3>1000+</h3>
+<p>Satisfied Customers</p>
+</div>
+
+<div class="stat-box">
+<h3>100%</h3>
+<p>Quality Focus</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+                                                            </html>
+
+
