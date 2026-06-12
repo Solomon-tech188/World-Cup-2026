@@ -16,12 +16,49 @@ linear-gradient(
 );
 body{
     margin:0;
-    background:#0b0b0b;
     color:white;
-    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        rgba(255,255,255,.08),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at bottom left,
+        rgba(255,255,255,.05),
+        transparent 40%
+    ),
+
+    linear-gradient(
+        135deg,
+        #b0004d,
+        #8c003f,
+        #6e0031,
+        #4d0022
+    );
+
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
 }
 
+
+    @keyframes bgMove{
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+                }
+    
 <div class="sparkle" style="left:5%;animation-delay:0s"></div>
 <div class="sparkle" style="left:15%;animation-delay:2s"></div>
 <div class="sparkle" style="left:25%;animation-delay:4s"></div>
@@ -163,15 +200,18 @@ nav a:hover{
 }
 
 .product-card{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,215,0,.2);
-    border-radius:25px;
-    overflow:hidden;
-    transition:.5s;
-    box-shadow:0 0 15px rgba(255,215,0,.08);
-}
+    background:rgba(255,255,255,.08);
 
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    transition:.5s;
+    }
+
+    
 .product-card:hover{
     transform:translateY(-12px) scale(1.03);
     box-shadow:0 0 35px rgba(255,215,0,.4);
