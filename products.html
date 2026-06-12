@@ -1,75 +1,226 @@
-<!-- explore-products.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Explore Products</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html">← Back to Home</a>
-    </nav>
-  </header>
+<style>
+body{
+    margin:0;
+    background:#0b0b0b;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
 
-  <section id="products">
-    <h2>Our Products</h2>
+<div class="sparkle" style="left:5%;animation-delay:0s"></div>
+<div class="sparkle" style="left:15%;animation-delay:2s"></div>
+<div class="sparkle" style="left:25%;animation-delay:4s"></div>
+<div class="sparkle" style="left:35%;animation-delay:1s"></div>
+<div class="sparkle" style="left:45%;animation-delay:3s"></div>
+<div class="sparkle" style="left:55%;animation-delay:5s"></div>
+<div class="sparkle" style="left:65%;animation-delay:2s"></div>
+<div class="sparkle" style="left:75%;animation-delay:4s"></div>
+<div class="sparkle" style="left:85%;animation-delay:1s"></div>
+<div class="sparkle" style="left:95%;animation-delay:3s"></div>
+  
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+    url("images/luxury-bg.png");
+    background-size:cover;
+    background-position:center;
+    z-index:-3;
+    animation:bgZoom 20s ease-in-out infinite alternate;
+}
 
-    <!-- Featured Images -->
-    <div class="featured-gallery">      
-    </div>
+@keyframes bgZoom{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
+}
 
-    <!-- Product Cards -->
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/inage/angled-connector-90-3262-2.jpg" alt="Player" width="500">
-        <h3>L Connector</h3>
-        <p style="padding:15px; text-align:center; line-height:1.6;">
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at top right,
+    rgba(255,215,0,.15),
+    transparent 50%);
+    z-index:-2;
+}
+
+header{
+    padding:25px;
+    text-align:center;
+}
+
+nav a{
+    color:#FFD700;
+    text-decoration:none;
+    font-weight:700;
+    font-size:18px;
+}
+
+nav a:hover{
+    color:white;
+}
+
+#products h2{
+    text-align:center;
+    font-size:55px;
+    margin:30px 0 50px;
+    animation:glowText 3s infinite;
+}
+
+@keyframes glowText{
+    0%,100%{
+        text-shadow:0 0 10px rgba(255,215,0,.3);
+    }
+    50%{
+        text-shadow:
+        0 0 25px rgba(255,215,0,.9),
+        0 0 50px rgba(255,215,0,.5);
+    }
+}
+
+.product-grid{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+    padding-bottom:100px;
+}
+
+.product-card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,215,0,.2);
+    border-radius:25px;
+    overflow:hidden;
+    transition:.5s;
+    box-shadow:0 0 15px rgba(255,215,0,.08);
+}
+
+.product-card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 0 35px rgba(255,215,0,.4);
+}
+
+.product-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.product-card:hover img{
+    transform:scale(1.08);
+}
+
+.product-card h3{
+    text-align:center;
+    color:#FFD700;
+    font-size:28px;
+    padding:15px 0;
+}
+
+.product-card p{
+    color:#ddd;
+}
+
+.sparkle{
+    position:fixed;
+    width:5px;
+    height:5px;
+    background:#FFD700;
+    border-radius:50%;
+    box-shadow:0 0 12px #FFD700;
+    animation:floatSpark 10s linear infinite;
+    z-index:-1;
+}
+
+@keyframes floatSpark{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+  </style>
+
+<!-- explore-products.html -->  <!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <title>Explore Products</title>  
+  <link rel="stylesheet" href="styles.css">  
+</head>  
+<body>  
+  <header>  
+    <nav>  
+      <a href="index.html">← Back to Home</a>  
+    </nav>  
+  </header>    <section id="products">  
+    <h2>Our Products</h2>  <!-- Featured Images -->  
+<div class="featured-gallery">        
+</div>  
+
+<!-- Product Cards -->  
+<div class="product-grid">  
+  <div class="product-card">  
+    <img src="images/inage/angled-connector-90-3262-2.jpg" alt="Player" width="500">  
+    <h3>L Connector</h3>  
+    <p style="padding:15px; text-align:center; line-height:1.6;">
+
 Aluminum angled connectors are versatile hardware pieces used to securely join aluminum profiles or tubes at specific angles without requiring specialized machining like drilling or threading. They are widely used in industrial frameworks, modular automation, and custom furniture for their lightweight, rust-resistant, and high-load-bearing properties.
-        </p>
-      </div>
-        <div class="product-card">
-        <img src="images/inage/kjn538698_img.gif" alt="Player" width="500">
-        <p style="padding:15px; text-align:center; line-height:1.6;">
-          Aluminum T-connectors (also called T-slot joint plates or T-brackets) join aluminum profiles or tubes perpendicular to each other, forming a "T" shape. They are essential for extending frames, adding internal support crossbars, or linking multiple structural sections together.
-        </p>
-          <h3>T Connector</h3>
-          
-      </div>
+</p>
+</div>
+<div class="product-card">
+<img src="images/inage/kjn538698_img.gif" alt="Player" width="500">
+<p style="padding:15px; text-align:center; line-height:1.6;">
+Aluminum T-connectors (also called T-slot joint plates or T-brackets) join aluminum profiles or tubes perpendicular to each other, forming a "T" shape. They are essential for extending frames, adding internal support crossbars, or linking multiple structural sections together.
+</p>
+<h3>T Connector</h3>
 
-      <div class="product-card">        
-      <img src="images/inage/A20.26.10.01.jpg" alt="Player" width="500">
-        <p style="padding:15px; text-align:center; line-height:1.6;">
-       Aluminum slide connectors (also commonly referred to as straight-line connectors, linear bar connectors, or slide-in joint plates) are specialized hardware components designed to slide directly into the T-slots or internal channels of aluminum profiles. They are primarily used to extend frame lengths end-to-end or facilitate smooth, adjustable linear movement along a track.
-        </p>
-          <h3>Slide Connector</h3>
-      </div>
+</div>  
 
-      <div class="product-card">
-        <img src="images/inage/IMG_20241107_171713.jpg" alt="Player" width="500">
-        <p style="padding:15px; text-align:center; line-height:1.6;">
-       A window handle is the primary mechanism used to latch, unlatch, lock, and operate a window. Beyond opening and closing glass panes, specific handle designs serve as critical components for home security, child safety, smart home integration, and building ventilation.
-        </p>
-          <h3>Window Handle</h3>
-      </div>
+  <div class="product-card">          
+  <img src="images/inage/A20.26.10.01.jpg" alt="Player" width="500">  
+    <p style="padding:15px; text-align:center; line-height:1.6;">  
+   Aluminum slide connectors (also commonly referred to as straight-line connectors, linear bar connectors, or slide-in joint plates) are specialized hardware components designed to slide directly into the T-slots or internal channels of aluminum profiles. They are primarily used to extend frame lengths end-to-end or facilitate smooth, adjustable linear movement along a track.  
+    </p>  
+      <h3>Slide Connector</h3>  
+  </div>  
 
-      <div class="product-card">
-        <img src="images/inage/aluminum-door-lock-sliding-door-am-208h-amex.jpg" alt="Player" width="500">
-       <p style="padding:15px; text-align:center; line-height:1.6;">
-        door lock for aluminum doors is a specialized security mechanism engineered to fit inside or onto the narrow-profile frames typical of aluminum entrances. They are primarily used to secure storefronts, commercial offices, residential patios, and heavy-traffic entry points where standard wooden door locks are too wide to install.
-       </p>
-         <h3>Door Lock</h3>
-      </div>
+  <div class="product-card">  
+    <img src="images/inage/IMG_20241107_171713.jpg" alt="Player" width="500">  
+    <p style="padding:15px; text-align:center; line-height:1.6;">  
+   A window handle is the primary mechanism used to latch, unlatch, lock, and operate a window. Beyond opening and closing glass panes, specific handle designs serve as critical components for home security, child safety, smart home integration, and building ventilation.  
+    </p>  
+      <h3>Window Handle</h3>  
+  </div>  
 
-      <div class="product-card">
-        <img src="images/inage/glass-door-hinge-3012-hero.jpg" alt="Player" width="500">
-        <p style="padding:15px; text-align:center; line-height:1.6;">
-        An aluminum hinge is a mechanical bearing used to connect two solid objects—such as a door, window, panel, or lid—allowing a limited angle of rotation between them. Known for their high strength-to-weight ratio, non-magnetic properties, and natural resistance to rust, they are heavily used across marine, automotive, industrial, and architectural environments.
-        </p>
-          <h3>Hinge</h3>
-      </div>
-    </div>
-  </section>
-</body>
-  </html>
+  <div class="product-card">  
+    <img src="images/inage/aluminum-door-lock-sliding-door-am-208h-amex.jpg" alt="Player" width="500">  
+   <p style="padding:15px; text-align:center; line-height:1.6;">  
+    door lock for aluminum doors is a specialized security mechanism engineered to fit inside or onto the narrow-profile frames typical of aluminum entrances. They are primarily used to secure storefronts, commercial offices, residential patios, and heavy-traffic entry points where standard wooden door locks are too wide to install.  
+   </p>  
+     <h3>Door Lock</h3>  
+  </div>  
+
+  <div class="product-card">  
+    <img src="images/inage/glass-door-hinge-3012-hero.jpg" alt="Player" width="500">  
+    <p style="padding:15px; text-align:center; line-height:1.6;">  
+    An aluminum hinge is a mechanical bearing used to connect two solid objects—such as a door, window, panel, or lid—allowing a limited angle of rotation between them. Known for their high strength-to-weight ratio, non-magnetic properties, and natural resistance to rust, they are heavily used across marine, automotive, industrial, and architectural environments.  
+    </p>  
+      <h3>Hinge</h3>  
+  </div>  
+</div>
+
+  </section>  
+</body>  
+  </html>  This is the code now add all the code u gave me now in this code and give me
+  
