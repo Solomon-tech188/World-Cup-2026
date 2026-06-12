@@ -90,3 +90,107 @@ Our products are designed with durability, precision, and modern aesthetics in m
 <p>
 To deliver innovative aluminum accessories that combine strength, functionality, and elegance while helping our customers build better homes, offices, and industrial projects.
 </p>
+</nav>
+<style>
+/* Back Home Button */
+<nav class="top-nav">
+    <a href="index.html" class="home-btn">
+        🏠 Back to Home
+    </a>
+.top-nav{
+    text-align:center;
+    padding:25px 0;
+}
+
+background:
+linear-gradient(
+135deg,
+#0f0f0f,
+#2d2d2d,
+#5c5c5c,
+#2d2d2d,
+#0f0f0f
+);
+  
+.home-btn{
+    display:inline-block;
+
+    padding:16px 38px;
+
+    background:white;
+
+    color:#111;
+
+    text-decoration:none;
+
+    font-size:18px;
+    font-weight:700;
+
+    border-radius:50px;
+
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 25px rgba(255,255,255,.25);
+
+    transition:all .4s ease;
+
+    animation:floatButton 3s ease-in-out infinite;
+}
+
+/* Shine Animation */
+
+.home-btn::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,215,0,.7),
+        transparent
+    );
+
+    transition:.8s;
+}
+
+.home-btn:hover::before{
+    left:120%;
+}
+
+/* Hover Effect */
+
+.home-btn:hover{
+    background:#FFD700;
+
+    color:black;
+
+    transform:
+    translateY(-6px)
+    scale(1.08);
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,.9),
+    0 0 40px rgba(255,215,0,.5);
+}
+
+/* Floating Animation */
+
+@keyframes floatButton{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+}
+</style>
