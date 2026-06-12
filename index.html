@@ -259,6 +259,12 @@ WC26
 WC26
 </div>
 
+<div class="video-bg">
+  <video autoplay muted loop>
+    <source src="https://cdn.coverr.co/videos/coverr-a-football-player-kicking-the-ball-9715/1080p.mp4" type="video/mp4">
+  </video>
+</div>
+    
 <nav>
 <a href="#">Home</a>
 <a href="#stats">Stats</a>
@@ -462,7 +468,56 @@ transform:scale(1.05);
 color:#00d9ff;
 margin-bottom:10px;
 }
+/* VIDEO BACKGROUND */
+.video-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+overflow:hidden;
+}
 
+.video-bg video{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.25;
+}
+
+/* GLASS EFFECT CARDS UPGRADE */
+.team-card, .player-card, .prediction-card, .stadium-card{
+backdrop-filter: blur(12px);
+background: rgba(20,20,20,0.7);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* LIVE TICKER */
+.ticker{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#00d9ff;
+color:black;
+padding:10px;
+font-weight:700;
+overflow:hidden;
+white-space:nowrap;
+z-index:999;
+}
+
+.ticker span{
+display:inline-block;
+padding-left:100%;
+animation:scroll 15s linear infinite;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+    }
 </style>
 
 <section id="players">
@@ -489,12 +544,12 @@ Star Players To Watch
 </div>
 
 <div class="player-card">
-<h3>Vinícius Jr.</h3>
+<h3>Neymar Jr.</h3>
 <p>Brazil</p>
 </div>
 
 <div class="player-card">
-<h3>Pedri</h3>
+<h3>Lamine yamal</h3>
 <p>Spain</p>
 </div>
 
@@ -824,6 +879,36 @@ sec.style.transition = "0.8s";
 observer.observe(sec);
 });
 
+// SIMPLE COUNTER ANIMATION (PRO EFFECT)
+
+const counters = document.querySelectorAll(".stat-box h2");
+
+counters.forEach(counter=>{
+let target = +counter.innerText;
+let count = 0;
+
+let speed = target / 100;
+
+let update = setInterval(()=>{
+count += speed;
+
+if(count >= target){
+counter.innerText = target;
+clearInterval(update);
+}else{
+counter.innerText = Math.floor(count);
+}
+},20);
+});
+    
     </script>
+
+<div class="ticker">
+  <span>
+    🔴 LIVE: World Cup 2026 preparations heating up • Argentina favorites • France strong squad • Brazil rebuilding • Tickets selling fast • Stadiums nearly ready •
+  </span>
+</div>
+
+
 </body>
     </html>
