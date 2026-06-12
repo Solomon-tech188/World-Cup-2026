@@ -8,8 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
+    background-image: url("images/Diamond-17873186.webp");
 .hero {
+
     min-height: 100vh;
     background:
         linear-gradient(
@@ -25,9 +26,6 @@
     display: flex;
     align-items: center;
     padding: 0 8%;
-}
-    
-    
 .hero::before {
     content: "";
     position: absolute;
@@ -39,6 +37,42 @@
     );
     pointer-events: none;
 }
+    
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.75)
+        ),
+        url("1000106478.webp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+
+
+height:100vh;
+background:linear-gradient(135deg,#ff4b7d,#ff7f50,#ffd0a8);
+position:relative;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+    
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at right,
+        rgba(255,215,0,0.15),
+        transparent 50%
+    );
+    pointer-events: none;
+    }
 
 
 .learn-btn{
@@ -55,7 +89,7 @@
     border-radius:50px;
     box-shadow:0 0 20px rgba(255,187,0,.5);
     transition:all .4s ease;
-}
+    }
 
 .learn-btn:hover{
     transform:translateY(-5px) scale(1.08);
@@ -164,14 +198,6 @@ overflow-x:hidden;
 <div class="particle" style="left:85%;animation-delay:5s;"></div>
 
     
-.hero{
-height:100vh;
-background:linear-gradient(135deg,#ff4b7d,#ff7f50,#ffd0a8);
-position:relative;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-}
 
 nav{
 display:flex;
